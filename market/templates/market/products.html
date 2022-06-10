@@ -10,11 +10,15 @@
       <div class="col-lg-4">
         <img class="thumbnail" src="{{ product.imageURL }}" alt="placeholder">
         <div class="box-element product text-white">
-          <div><strong>{{product.name|title}}</strong></div>
+          <div>
+            
+            <h4 style="display:inline-block ;">&dollar;{{product.price|floatformat:2}}</h4>
+            <strong>{{product.name|title}}</strong>
+          </div>
+
           <hr>
           <button data-product="{{product.id}}" data-action="add" class="btn btn-outline-secondary add-btn update-cart">Add to cart</button>
           <a class="btn btn-outline-success" href="#">View</a>
-          <h4 style="display:block ;float: right;">&dollar;{{product.price|floatformat:2}}</h4>
         </div>
       </div>
     {% endfor%}

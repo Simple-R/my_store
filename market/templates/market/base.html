@@ -10,10 +10,11 @@
     
     <!--  -->
     <link rel="shortcut icon" type="text/css" href="{% static 'favicon_io/favicon.ico'%}">
-    <link href="{% static 'css/font_awesome/all.css'%}" rel="stylesheet">
-    <link href="{% static 'css/bootstrap/bootstrap.min.css' %}" rel="stylesheet">
-    <link href="{% static 'css/bootstrap/media-query.css' %}" rel="stylesheet">
-    <link href="{% static 'css/bootstrap/navbar-top.css' %}" rel="stylesheet">
+    <link rel="stylesheet" type="text/css" href="{% static 'css/custom/cart-font.css'%}">
+    <link rel="stylesheet" type="text/css" href="{% static 'css/font_awesome/all.css'%}" rel="stylesheet">
+    <link rel="stylesheet" type="text/css" href="{% static 'css/bootstrap/bootstrap.min.css' %}" rel="stylesheet">
+    <link rel="stylesheet" type="text/css" href="{% static 'css/bootstrap/media-query.css' %}" rel="stylesheet">
+    <link rel="stylesheet" type="text/css" href="{% static 'css/bootstrap/navbar-top.css' %}" rel="stylesheet">
     <style>
       body{
         background-color: rgba(0, 0, 0, .85);
@@ -21,7 +22,9 @@
     </style>
   </head>
   <body style="background-color:#212529;">
+
 <nav class="navbar navbar-expand-lg navbar-dark bg-dark mb-2">
+
   <div class="container-fluid">
     <a class="navbar-brand" href="{% url 'market:market'%}">E-Commerce</a>
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
@@ -32,13 +35,16 @@
         <li class="nav-item">
           <a class="nav-link active" aria-current="page" href="{% url 'market:market'%}">Store</a>
         </li>
+
+        <li class="nav-item">
+          <a class="nav-link" href="#">Categories</a>
+        </li>
+
+        <li class="nav-item">
+          <a class="nav-link disabled">My Dashboard</a>
+        </li>
       </ul>
-    
-    <li class="nav-item" style="list-style: none;">
-      <a class="nav-link" href="#">
-        <button class="btn btn-warning">Sign in</button>
-      </a>
-    </li>
+
       <li class="nav-item " style="list-style: none;">
         <a href="{% url 'market:cart'%}" class="cart position-relative d-inline-flex" aria-label="View your shopping cart">
           <i class="fas fa fa-shopping-cart fa-lg"></i>
@@ -46,7 +52,21 @@
             0
           </span>
         </a>
-          </li>
+      </li>
+
+      <li class="nav-item" style="list-style: none;">
+        <a class="nav-link" href="#">
+          <button class="btn btn-warning">Sign in</button>
+        </a>
+      </li>
+
+      <form class="d-flex">
+        <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
+        <button class="btn btn-outline-success" type="submit">Search</button>
+      </form>
+
+      
+      
     </div>
   </div>
 </nav>
