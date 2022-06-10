@@ -1,0 +1,64 @@
+{% load static %}
+<link href="{% static 'css/font_awesome/all.css'%}" rel="stylesheet">
+<link href="{% static 'css/custom/cart-font.css'%}" rel="stylesheet">
+
+<nav class="navbar navbar-expand-md navbar-dark bg-dark mb-0 mt-0">
+  <div class="container-fluid">
+    <h3><a class="nav-link active" aria-current="page" href="{% url 'market:home' %}" style="color:goldenrod ;">Nicks Shorts</a></h3> 
+    
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarCollapse">
+      <ul class="navbar-nav me-auto mb-2 mb-md-0">
+
+        <li class="nav-item dropdown">
+            <a class="nav-link dropdown-toggle" href="#" id="dropdown03" data-bs-toggle="dropdown" aria-expanded="false">Category</a>
+            <ul class="dropdown-menu" aria-labelledby="dropdown03">
+              <li><a class="dropdown-item" href="#">Black</a></li>
+              <li><a class="dropdown-item" href="#">Brown</a></li>
+              <li><a class="dropdown-item" href="#">White</a></li>
+            </ul>
+        </li>
+
+        {% if user.is_authenticated %}
+          <li class="nav-item">
+            <a class="nav-link" href="{% url 'user:dashboard'%}">My Dashboard</a>
+          </li>
+        {% endif %}
+        
+      </ul>
+
+        {% if user.is_authenticated %}
+        
+          <li class="nav-item" style="list-style: none;">
+            <a class="nav-link disabled" href="#">  Welcome {{ user.username | title }}  </a>
+          </li>
+
+
+          <li class="nav-item " style="list-style: none;">
+          <a href="{% url 'market:cart' user.id%}" class="cart position-relative d-inline-flex" aria-label="View your shopping cart">
+          <i class="fas fa fa-shopping-cart fa-lg"></i>
+          <span class="cart-basket d-flex align-items-center justify-content-center">
+            <!--TODO: Use Javascript to add count of items Later-->
+          </span>
+        </a>
+          </li>
+          <li class="nav-item " style="list-style: none;">..</li>
+        {% else %}
+          <li class="nav-item" style="list-style: none;">
+            <a class="nav-link" href="{% url 'user:login'%}"> Sign In </a>
+          </li>
+        {% endif %}
+
+
+      <form class="d-flex">
+        <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
+        <button class="btn btn-outline-success" type="submit">Search</button>
+      </form>
+
+    </div>
+  </div>
+</nav>
+</main>
+
