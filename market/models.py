@@ -1,4 +1,15 @@
 from django.db import models
+from django.contrib.auth.models import User
+
+class Customer(models.Model):
+	"""Every registered User"""
+
+	class Meta: verbose_name_plural = "Customers"
+	
+	user = models.OneToOneField(User, null=True, on_delete=models.CASCADE)
+	customer_name = models.CharField(max_length=200, null=True)
+	customer_email = models.EmailField()
+
 
 
 class Product(models.Model):

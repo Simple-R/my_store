@@ -15,3 +15,8 @@ urlpatterns += [
   path('process_order/', views.process_order, name='process_order'),
 
 ]
+
+urlpatterns += [
+  path('login/', views.login_user, name='login'),
+]
+
